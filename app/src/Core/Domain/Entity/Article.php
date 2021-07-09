@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Core\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 final class Article
 {
@@ -22,7 +23,8 @@ final class Article
     private string $body;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
+     * @Gedmo\Slug(fields={"title"}, updatable=true, unique=true)
      */
     private string $slug;
 

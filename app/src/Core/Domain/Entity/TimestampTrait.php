@@ -15,9 +15,9 @@ trait TimestampTrait
     protected DateTimeImmutable $createdAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
-    protected DateTimeImmutable $updatedAt;
+    protected ?DateTimeImmutable $updatedAt;
 
     /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
