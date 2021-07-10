@@ -218,6 +218,9 @@
     "symfony/http-kernel": {
         "version": "5.4.x-dev"
     },
+    "symfony/password-hasher": {
+        "version": "5.4.x-dev"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
     },
@@ -239,6 +242,12 @@
     "symfony/polyfill-uuid": {
         "version": "v1.23.0"
     },
+    "symfony/property-access": {
+        "version": "5.4.x-dev"
+    },
+    "symfony/property-info": {
+        "version": "5.4.x-dev"
+    },
     "symfony/proxy-manager-bridge": {
         "version": "5.4.x-dev"
     },
@@ -258,6 +267,30 @@
     "symfony/runtime": {
         "version": "5.4.x-dev"
     },
+    "symfony/security-bundle": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "9c4fcf79873f7400c885b90935f7163233615d6f"
+        },
+        "files": [
+            "config/packages/security.yaml"
+        ]
+    },
+    "symfony/security-core": {
+        "version": "5.4.x-dev"
+    },
+    "symfony/security-csrf": {
+        "version": "5.4.x-dev"
+    },
+    "symfony/security-guard": {
+        "version": "5.4.x-dev"
+    },
+    "symfony/security-http": {
+        "version": "5.4.x-dev"
+    },
     "symfony/service-contracts": {
         "version": "v2.4.0"
     },
@@ -267,8 +300,24 @@
     "symfony/string": {
         "version": "5.4.x-dev"
     },
+    "symfony/translation-contracts": {
+        "version": "v2.4.0"
+    },
     "symfony/uid": {
         "version": "5.4.x-dev"
+    },
+    "symfony/validator": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "3eb8df139ec05414489d55b97603c5f6ca0c44cb"
+        },
+        "files": [
+            "config/packages/test/validator.yaml",
+            "config/packages/validator.yaml"
+        ]
     },
     "symfony/var-dumper": {
         "version": "5.4.x-dev"
