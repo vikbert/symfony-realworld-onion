@@ -2,12 +2,12 @@
 
 declare(strict_types = 1);
 
-namespace App\Core\Domain\Entity;
+namespace App\Core\Domain\Traits;
 
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
-trait TimestampTrait
+trait EntityTimestamp
 {
     /**
      * @ORM\Column(type="datetime_immutable")
@@ -23,6 +23,21 @@ trait TimestampTrait
      * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     protected ?DateTimeImmutable $deletedAt;
+
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): ?DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function getDeletedAt(): ?DateTimeImmutable
+    {
+        return $this->deletedAt;
+    }
 
     /**
      * @ORM\PrePersist
