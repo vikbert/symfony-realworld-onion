@@ -22,9 +22,9 @@ services:
     build: ./docker/db
     image: base-db:latest
     environment:
-      POSTGRES_USER: symfony
-      POSTGRES_PASSWORD: symfony
-      POSTGRES_DB: symfony
+      POSTGRES_USER: conduit
+      POSTGRES_PASSWORD: conduit
+      POSTGRES_DB: conduit
     ports: [2345:5432]
     restart: always
 
