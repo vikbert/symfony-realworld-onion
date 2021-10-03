@@ -218,6 +218,9 @@
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
     },
+    "symfony/polyfill-uuid": {
+        "version": "v1.23.0"
+    },
     "symfony/proxy-manager-bridge": {
         "version": "5.4.x-dev"
     },
@@ -244,6 +247,9 @@
         "version": "5.4.x-dev"
     },
     "symfony/string": {
+        "version": "5.4.x-dev"
+    },
+    "symfony/uid": {
         "version": "5.4.x-dev"
     },
     "symfony/var-dumper": {
