@@ -6,9 +6,12 @@ namespace App\Core\Domain\Entity;
 
 use App\Core\Domain\Traits\EntityIdentifier;
 use App\Core\Domain\Traits\EntityTimestamp;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Entity;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -44,6 +47,24 @@ final class Article
      */
     private string $description;
 
+    /**
+     * @var Collection|Tag[]
+     * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="articles")
+     */
+    private Collection $tags;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
+    public function __construct(UserInterface $author)
+    {
+        $this->tags = new ArrayCollection();
+        $this->author = $author;
+    }
+
     public function __toString(): string
     {
         return $this->title;
@@ -68,5 +89,35 @@ final class Article
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): void
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+    }
+
+    public function removeTag(Tag $tag): void
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    public function getAuthor(): User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(User $author): void
+    {
+        $this->author = $author;
     }
 }
